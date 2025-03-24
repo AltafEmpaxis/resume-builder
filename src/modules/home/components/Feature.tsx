@@ -7,34 +7,36 @@ function FeatureSection() {
   const features = [
     {
       icon: <FiLayers className="h-6 w-6 text-resume-700" />,
-      title: "Professional Templates",
-      description: "Choose from a variety of professionally designed templates to make your resume stand out."
+      title: 'Professional Templates',
+      description:
+        'Choose from a variety of professionally designed templates to make your resume stand out.',
     },
     {
       icon: <FiStar className="h-6 w-6 text-resume-700" />,
-      title: "Easy Customization",
-      description: "Personalize your resume with custom colors, fonts, and layouts to match your style."
+      title: 'Easy Customization',
+      description:
+        'Personalize your resume with custom colors, fonts, and layouts to match your style.',
     },
     {
       icon: <FiDownload className="h-6 w-6 text-resume-700" />,
-      title: "Export Options",
-      description: "Download your resume as a PDF to share with potential employers."
+      title: 'Export Options',
+      description: 'Download your resume as a PDF to share with potential employers.',
     },
     {
       icon: <FiShield className="h-6 w-6 text-resume-700" />,
-      title: "ATS-Friendly",
-      description: "Our resumes are designed to pass through Applicant Tracking Systems."
+      title: 'ATS-Friendly',
+      description: 'Our resumes are designed to pass through Applicant Tracking Systems.',
     },
     {
       icon: <FiEye className="h-6 w-6 text-resume-700" />,
-      title: "Real-time Preview",
-      description: "See your changes instantly as you build your resume."
+      title: 'Real-time Preview',
+      description: 'See your changes instantly as you build your resume.',
     },
     {
       icon: <FiClock className="h-6 w-6 text-resume-700" />,
-      title: "Quick & Easy",
-      description: "Build your professional resume in minutes with our intuitive interface."
-    }
+      title: 'Quick & Easy',
+      description: 'Build your professional resume in minutes with our intuitive interface.',
+    },
   ];
 
   return (
@@ -51,7 +53,15 @@ function FeatureSection() {
   );
 }
 
-const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => {
+const FeatureCard = ({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) => {
   return (
     <motion.div
       whileHover={{ y: -5 }}

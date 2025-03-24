@@ -36,7 +36,7 @@ const LeftSection = styled.div`
   flex-basis: 66%;
   row-gap: 20px;
   height: 100%;
-  
+
   @media print {
     flex-basis: 65%;
   }
@@ -49,7 +49,7 @@ const RightSection = styled.div`
   row-gap: 20px;
   height: 100%;
   font-size: 11px;
-  
+
   @media print {
     flex-basis: 35%;
   }
@@ -57,7 +57,7 @@ const RightSection = styled.div`
 
 export default function ProfessionalTemplate() {
   const resumeData = useContext(StateContext);
-  
+
   // Safety checks for all properties
   const basics = resumeData?.basics || {};
   const skills = resumeData?.skills || {
@@ -67,13 +67,13 @@ export default function ProfessionalTemplate() {
     libraries: [],
     databases: [],
     practices: [],
-    tools: []
+    tools: [],
   };
-  
+
   // Safety checks for other sections
   const work = resumeData?.work || [];
   const education = resumeData?.education || [];
-  
+
   // Create mock involvements and achievements for testing - these will be displayed
   const involvements = `<ul>
     <li>Prevented millions of dollars in state sales tax undercharges by initiating tests that revealed a bug in a new release of shopping cart software.</li>
@@ -81,7 +81,7 @@ export default function ProfessionalTemplate() {
     <li>Implemented automated testing tools spawning more diligent levels of regression testing, negative testing, error/bug retests and usability.</li>
     <li>Developed and maintained a web application using React and Redux for managing user accounts and permissions.</li>
   </ul>`;
-  
+
   const achievements = `<ul>
     <li>React and redux - A complete guide 2020 from Udemy</li>
     <li>Agile and Scrum Master Certificate from Udacity</li>

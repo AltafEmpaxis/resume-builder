@@ -69,7 +69,7 @@ const Contacts = ({
         variant="filled"
         value={basicTabs.location.city}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
-          const location = {...basicTabs.location};
+          const location = { ...basicTabs.location };
           location.city = event.target.value;
           onChangeHandler(location, 'location');
         }}

@@ -8,7 +8,9 @@ import { useThemes } from '@/stores/themes';
 import { useZoom } from '@/stores/useZoom';
 
 // Define proper context type from the store's return type
-export let StateContext: Context<ReturnType<typeof useResumeStore>> = createContext({} as ReturnType<typeof useResumeStore>);
+export let StateContext: Context<ReturnType<typeof useResumeStore>> = createContext(
+  {} as ReturnType<typeof useResumeStore>
+);
 
 export const ResumeLayout = () => {
   const resumeData = useResumeStore();

@@ -105,7 +105,7 @@ const Links = ({
       profiles.push({
         network,
         username: 'janedoe',
-        url: value
+        url: value,
       });
     }
     onChangeHandler(profiles, 'profiles');

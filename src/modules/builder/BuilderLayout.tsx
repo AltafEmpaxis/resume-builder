@@ -14,16 +14,16 @@ const BuilderLayout = () => {
           <header className="w-full max-w-[210mm] mt-5 mb-3 mx-auto px-4 print:hidden">
             <ResumeHeader />
           </header>
-          <div 
-            className="overflow-auto no-scrollbar p-2 md:p-4 flex-1" 
-            role="region" 
+          <div
+            className="overflow-auto no-scrollbar p-2 md:p-4 flex-1"
+            role="region"
             aria-label="Resume preview"
           >
             <ResumeLayout />
           </div>
         </div>
-        <aside 
-          className="w-full md:w-[25vw] md:min-w-[20rem] md:max-w-[30rem] h-[40vh] md:h-auto print:hidden border-t md:border-l border-gray-200" 
+        <aside
+          className="w-full md:w-[25vw] md:min-w-[20rem] md:max-w-[30rem] h-[40vh] md:h-auto print:hidden border-t md:border-l border-gray-200"
           aria-label="Resume editor"
         >
           <EditorLayout />

@@ -25,7 +25,9 @@ export const Education = ({ education }: { education: (IEducation | EducationIte
                 <p className="font-medium">{item.institution}</p>
                 <p>
                   {`${dateParser(item.startDate)} - ${
-                    'isStudyingHere' in item && item.isStudyingHere ? 'present' : dateParser(item.endDate)
+                    'isStudyingHere' in item && item.isStudyingHere
+                      ? 'present'
+                      : dateParser(item.endDate)
                   }`}
                 </p>
               </div>

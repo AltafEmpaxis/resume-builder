@@ -29,11 +29,11 @@ const SectionHolder = styled.div`
     transform: translate(0, -50%);
     color: ${(props) => props.theme.titleColor};
   }
-  
+
   @media print {
     border: 1px solid ${(props) => Color(props.theme.highlighterColor).alpha(0.85).toString()};
     padding: 15px 10px 10px 10px;
-    
+
     .header {
       background: white !important;
       padding: 0 5px;

@@ -8,7 +8,14 @@ const tabTitles = ['Contacts', 'Links', 'About'];
 const BasicLayout = () => {
   const [activeTab, setActiveTab] = React.useState(0);
   const basicTabs = useBasicDetails((state) => state.values);
-  const onChangeText = useBasicDetails.getState().reset;
+  const resetBasicDetails = useBasicDetails.getState().reset;
+
+  // Create a wrapper function that matches the expected signature
+  const onChangeText = (value: string | boolean, key: string) => {
+    // Create a copy of basicTabs and update only the changed field
+    const updatedBasicTabs = { ...basicTabs, [key]: value };
+    resetBasicDetails(updatedBasicTabs);
+  };
 
   const changeActiveTab = (event: React.SyntheticEvent, activeTab: number) => {
     setActiveTab(activeTab);
@@ -21,11 +28,7 @@ const BasicLayout = () => {
         changeActiveTab={changeActiveTab}
         tabTitles={tabTitles}
       ></BasicHeader>
-      <BasicPanel
-        activeTab={activeTab}
-        basicTabs={basicTabs}
-        onChangeText={onChangeText}
-      ></BasicPanel>
+      <BasicPanel basicTabs={basicTabs} onChangeText={onChangeText}></BasicPanel>
     </Fragment>
   );
 };

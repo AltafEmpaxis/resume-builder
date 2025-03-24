@@ -8,11 +8,7 @@ interface AnimatedBadgeProps {
   delay?: number;
 }
 
-const AnimatedBadge: React.FC<AnimatedBadgeProps> = ({ 
-  text, 
-  className = '',
-  delay = 0
-}) => {
+const AnimatedBadge: React.FC<AnimatedBadgeProps> = ({ text, className = '', delay = 0 }) => {
   return (
     <motion.div
       className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${className}`}
@@ -22,7 +18,7 @@ const AnimatedBadge: React.FC<AnimatedBadgeProps> = ({
         type: 'spring',
         stiffness: 260,
         damping: 20,
-        delay: delay
+        delay: delay,
       }}
     >
       <BsCheckCircleFill className="mr-1.5 h-3.5 w-3.5 flex-shrink-0" />
@@ -31,4 +27,4 @@ const AnimatedBadge: React.FC<AnimatedBadgeProps> = ({
   );
 };
 
-export default AnimatedBadge; 
+export default AnimatedBadge;

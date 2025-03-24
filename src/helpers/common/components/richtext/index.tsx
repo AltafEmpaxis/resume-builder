@@ -64,9 +64,7 @@ export const RichtextEditor = memo(({ label, onChange, value, name }: IRichtext)
 
   return (
     <div className={`${styles.editor_wrapper} mb-6`}>
-      <div
-        className="text-resume-800 text-sm font-medium px-4 py-2"
-      >
+      <div className="text-resume-800 text-sm font-medium px-4 py-2">
         <label htmlFor={name}>{label}</label>
       </div>
       <div className="rounded overflow-hidden">

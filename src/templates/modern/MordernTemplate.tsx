@@ -9,10 +9,12 @@ import { AwardSection } from './components/Awards';
 import { useContext } from 'react';
 import { StateContext } from '@/modules/builder/resume/ResumeLayout';
 import { SectionValidator } from '@/helpers/common/components/ValidSectionRenderer';
+import { IWorkIntrf, IEducation, IAwards } from '@/stores/index.interface';
+import dayjs from 'dayjs';
 
 export default function MordernTemplate() {
   const resumeData = useContext(StateContext);
-  
+
   // Safety defaults
   const basics = resumeData?.basics || {};
   const location = basics.location || {};
@@ -23,12 +25,34 @@ export default function MordernTemplate() {
     libraries: [],
     databases: [],
     practices: [],
-    tools: []
+    tools: [],
   };
   const work = resumeData?.work || [];
   const education = resumeData?.education || [];
   const awards = resumeData?.awards || [];
   const volunteer = resumeData?.volunteer || [];
+
+  // Convert any IExperienceItem[] to IWorkIntrf[] by adding the missing website property
+  const workWithWebsite: IWorkIntrf[] = work.map((item) => ({
+    ...item,
+    website: item.url || '', // Use url as website if not provided
+    startDate: dayjs(item.startDate), // Convert string to dayjs
+    endDate: dayjs(item.endDate), // Convert string to dayjs
+  }));
+
+  // Convert education items
+  const educationWithWebsite: IEducation[] = education.map((item) => ({
+    ...item,
+    website: item.url || '', // Use url as website if not provided
+    startDate: dayjs(item.startDate), // Convert string to dayjs
+    endDate: dayjs(item.endDate), // Convert string to dayjs
+  }));
+
+  // Convert award items
+  const awardsConverted: IAwards[] = awards.map((item) => ({
+    ...item,
+    date: dayjs(item.date), // Convert string to dayjs
+  }));
 
   return (
     <div className="p-2">
@@ -49,11 +73,11 @@ export default function MordernTemplate() {
           </SectionValidator>
 
           <SectionValidator value={work}>
-            <WorkSection experience={work} />
+            <WorkSection experience={workWithWebsite} />
           </SectionValidator>
 
           <SectionValidator value={awards}>
-            <AwardSection awardsReceived={awards} />
+            <AwardSection awardsReceived={awardsConverted} />
           </SectionValidator>
         </div>
 
@@ -82,7 +106,7 @@ export default function MordernTemplate() {
           </SectionValidator>
 
           <SectionValidator value={education}>
-            <EducationSection education={education} />
+            <EducationSection education={educationWithWebsite} />
           </SectionValidator>
 
           <SectionValidator value={volunteer}>

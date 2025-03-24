@@ -12,7 +12,12 @@ interface HTMLRendererProps {
 export const HTMLRenderer = ({ htmlString }: HTMLRendererProps) => {
   const options: HTMLReactParserOptions = {
     replace: (domNode: DOMNode) => {
-      if (domNode instanceof Element && domNode.name === 'a' && domNode.attribs && domNode.attribs.href) {
+      if (
+        domNode instanceof Element &&
+        domNode.name === 'a' &&
+        domNode.attribs &&
+        domNode.attribs.href
+      ) {
         return (
           <Link href={domNode.attribs.href}>
             {domToReact(domNode.children as DOMNode[], options)}

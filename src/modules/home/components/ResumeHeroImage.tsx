@@ -47,7 +47,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 340 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         />
-        
+
         {/* Name */}
         <motion.rect
           x="150"
@@ -60,7 +60,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 180 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         />
-        
+
         {/* Title */}
         <motion.rect
           x="150"
@@ -73,7 +73,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 140 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         />
-        
+
         {/* Contact Info */}
         <motion.rect
           x="150"
@@ -99,7 +99,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ x: 130, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         />
-        
+
         {/* Experience Items */}
         <motion.rect
           x="130"
@@ -111,7 +111,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 340 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         />
-        
+
         <motion.rect
           x="130"
           y="230"
@@ -123,7 +123,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 160 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         />
-        
+
         <motion.rect
           x="130"
           y="250"
@@ -135,7 +135,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 120 }}
           transition={{ duration: 0.5, delay: 1 }}
         />
-        
+
         <motion.rect
           x="130"
           y="270"
@@ -147,7 +147,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 320 }}
           transition={{ duration: 0.7, delay: 1.1 }}
         />
-        
+
         <motion.rect
           x="130"
           y="315"
@@ -158,7 +158,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 340 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         />
-        
+
         <motion.rect
           x="130"
           y="330"
@@ -170,7 +170,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 150 }}
           transition={{ duration: 0.5, delay: 1.3 }}
         />
-        
+
         <motion.rect
           x="130"
           y="350"
@@ -182,7 +182,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 110 }}
           transition={{ duration: 0.5, delay: 1.4 }}
         />
-        
+
         <motion.rect
           x="130"
           y="370"
@@ -194,7 +194,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 310 }}
           transition={{ duration: 0.7, delay: 1.5 }}
         />
-        
+
         {/* Skills Section */}
         <motion.rect
           x="130"
@@ -207,7 +207,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ x: 130, opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.6 }}
         />
-        
+
         <motion.rect
           x="130"
           y="445"
@@ -218,7 +218,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           animate={{ width: 340 }}
           transition={{ duration: 0.8, delay: 1.7 }}
         />
-        
+
         {/* Skill Bars */}
         <g>
           <motion.rect
@@ -255,7 +255,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
             transition={{ duration: 0.5, delay: 2 }}
           />
         </g>
-        
+
         <g>
           <motion.rect
             x="130"
@@ -291,7 +291,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
             transition={{ duration: 0.5, delay: 2.3 }}
           />
         </g>
-        
+
         <g>
           <motion.rect
             x="130"
@@ -327,7 +327,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
             transition={{ duration: 0.5, delay: 2.6 }}
           />
         </g>
-        
+
         {/* Second Page (Back) */}
         <motion.rect
           x="90"
@@ -343,7 +343,7 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           transition={{ duration: 0.5, delay: 0.1 }}
           style={{ zIndex: -1 }}
         />
-        
+
         {/* Third Page (Back) */}
         <motion.rect
           x="80"
@@ -360,23 +360,23 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
           style={{ zIndex: -2 }}
         />
       </motion.svg>
-      
+
       {/* Decorative Elements */}
-      <motion.div 
+      <motion.div
         className="absolute -top-10 -right-10 w-20 h-20 bg-blue-500 rounded-full opacity-20 blur-xl"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.7, delay: 0.3 }}
       />
-      
-      <motion.div 
+
+      <motion.div
         className="absolute -bottom-5 left-10 w-32 h-32 bg-indigo-400 rounded-full opacity-20 blur-xl"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.7, delay: 0.5 }}
       />
-      
-      <motion.div 
+
+      <motion.div
         className="absolute top-20 -left-10 w-16 h-16 bg-blue-300 rounded-full opacity-20 blur-xl"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -386,4 +386,4 @@ const ResumeHeroImage: React.FC<ResumeHeroImageProps> = ({ className = '' }) => 
   );
 };
 
-export default ResumeHeroImage; 
+export default ResumeHeroImage;
