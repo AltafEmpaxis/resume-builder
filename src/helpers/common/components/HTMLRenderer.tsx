@@ -15,7 +15,7 @@ export const HTMLRenderer = ({ htmlString }: HTMLRendererProps) => {
       if (domNode instanceof Element && domNode.name === 'a' && domNode.attribs && domNode.attribs.href) {
         return (
           <Link href={domNode.attribs.href}>
-            {domToReact(domNode.children, options)}
+            {domToReact(domNode.children as DOMNode[], options)}
           </Link>
         );
       } else if (domNode instanceof Element && domNode.name === 'script') {
