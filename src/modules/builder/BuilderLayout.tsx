@@ -4,8 +4,11 @@ import NavBarLayout from './nav-bar/NavBarLayout';
 import ResumeHeader from './resume/components/ResumeHeader';
 import { ResumeLayout } from './resume/ResumeLayout';
 import Tooltip from '@mui/material/Tooltip';
+import { useState } from 'react';
 
 const BuilderLayout = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
   return (
     <div className="flex flex-col h-screen bg-gray-50">
       <NavBarLayout />
@@ -22,12 +25,48 @@ const BuilderLayout = () => {
             <ResumeLayout />
           </div>
         </div>
-        <aside
-          className="w-full md:w-[25vw] md:min-w-[20rem] md:max-w-[30rem] h-[40vh] md:h-auto print:hidden border-t md:border-l border-gray-200"
+        {
+          isSidebarOpen && (
+            <aside
+          className={`w-full md:w-[25vw] md:min-w-[20rem] md:max-w-[30rem] h-[40vh] md:h-auto print:hidden border-t md:border-l border-gray-200 transition-all duration-300 ${
+            isSidebarOpen ? 'translate-x-0' : 'md:translate-x-full'
+          }`}
           aria-label="Resume editor"
         >
-          <EditorLayout />
-        </aside>
+            <EditorLayout />
+          </aside>
+        )}
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className={`fixed bottom-4 right-4 bg-resume-800 text-white p-2 rounded-full shadow-lg hover:bg-resume-700 transition-all duration-300 z-50 print:hidden md:right-4 ${
+            isSidebarOpen ? 'md:right-[25vw]' : 'md:right-4'
+          }`}
+          aria-label={isSidebarOpen ? 'Close sidebar' : 'Open sidebar'}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            {isSidebarOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M11 19l-7-7 7-7m8 14l-7-7 7-7"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 5l7 7-7 7M5 5l7 7-7 7"
+              />
+            )}
+          </svg>
+        </button>
       </main>
 
       <footer className="print:hidden">

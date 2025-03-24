@@ -14,6 +14,9 @@ import UnratedSkills from './components/UnratedSkills';
 import Work from './components/Work';
 import styled from '@emotion/styled';
 import { IActivity } from '@/stores/activity.interface';
+import { IBasics, ISkillsIntrf } from '@/stores/index.interface';
+import { IExperienceItem } from '@/stores/experience.interface';
+import { IEducationItem } from '@/stores/education.interface';
 
 const ResumeContainer = styled.div`
   display: flex;
@@ -55,11 +58,39 @@ const RightSection = styled.div`
   }
 `;
 
+interface IResumeData {
+  basics?: IBasics;
+  skills?: ISkillsIntrf;
+  work?: IExperienceItem[];
+  education?: IEducationItem[];
+  activities?: IActivity;
+}
+
 export default function ProfessionalTemplate() {
-  const resumeData = useContext(StateContext);
+  const resumeData = useContext(StateContext) as IResumeData;
 
   // Safety checks for all properties
-  const basics = resumeData?.basics || {};
+  const basics = resumeData?.basics || {
+    name: '',
+    label: '',
+    image: '',
+    email: '',
+    phone: '',
+    url: '',
+    summary: '',
+    objective: '',
+    location: {
+      address: '',
+      postalCode: '',
+      city: '',
+      countryCode: '',
+      region: ''
+    },
+    relExp: '',
+    totalExp: '',
+    profiles: []
+  };
+
   const skills = resumeData?.skills || {
     languages: [],
     frameworks: [],
@@ -67,36 +98,24 @@ export default function ProfessionalTemplate() {
     libraries: [],
     databases: [],
     practices: [],
-    tools: [],
+    tools: []
   };
 
   // Safety checks for other sections
   const work = resumeData?.work || [];
   const education = resumeData?.education || [];
+  const activities = resumeData?.activities || { involvements: '', achievements: '' };
 
-  // Create mock involvements and achievements for testing - these will be displayed
-  const involvements = `<ul>
-    <li>Prevented millions of dollars in state sales tax undercharges by initiating tests that revealed a bug in a new release of shopping cart software.</li>
-    <li>Isolated previously undiscovered flaw in price checking tool resulting in more competitive pricing and a 20 percent increase in revenue.</li>
-    <li>Implemented automated testing tools spawning more diligent levels of regression testing, negative testing, error/bug retests and usability.</li>
-    <li>Developed and maintained a web application using React and Redux for managing user accounts and permissions.</li>
-  </ul>`;
-
-  const achievements = `<ul>
-    <li>React and redux - A complete guide 2020 from Udemy</li>
-    <li>Agile and Scrum Master Certificate from Udacity</li>
-    <li>Best performer award for consistently exceeding the performance</li>
-    <li>Certificate of exceptional bug finder by XYZ client</li>
-    <li>Recognition zero defect delivery</li>
-  </ul>`;
+  const involvements = activities?.involvements || '';
+  const achievements = activities?.achievements || '';
 
   return (
     <ResumeContainer>
       <LeftSection>
         <Section
-          title={basics.name || ''}
-          profiles={basics.profiles || []}
-          portfolioUrl={basics.url || ''}
+          title={basics.name}
+          profiles={basics.profiles}
+          portfolioUrl={basics.url}
           titleClassname="text-xl font-medium"
         >
           <BasicIntro basics={basics} />
@@ -123,13 +142,13 @@ export default function ProfessionalTemplate() {
       <RightSection>
         <SectionValidator value={basics.summary}>
           <Section title="Summary">
-            <AboutMe summary={basics.summary || ''} profileImage={basics.image || ''} />
+            <AboutMe summary={basics.summary} profileImage={basics.image} />
           </Section>
         </SectionValidator>
 
         <SectionValidator value={basics.objective}>
           <Section title="Career Objective">
-            <Objective objective={basics.objective || ''} />
+            <Objective objective={basics.objective} />
           </Section>
         </SectionValidator>
 
