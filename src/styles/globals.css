@@ -38,3 +38,8 @@ body {
   size: A4 !important;
   margin: 0 !important;
 }
+
+/* Global styles for Jodit rich text editor */
+.jodit_richtextRuntimeWrapper__Rswmz ul>li {
+  margin-bottom: 4px;
+}
